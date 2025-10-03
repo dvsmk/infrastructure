@@ -15,10 +15,6 @@ spec:
   # Router ID - typically the MetalLB node's IP
   routerID: 192.168.1.189
   
-  # Keep BGP sessions alive
-  keepaliveTime: 120s
-  holdTime: 360s
-  
   # Optional: Limit which nodes can establish BGP sessions
   # nodeSelectors:
   #   - matchLabels:
