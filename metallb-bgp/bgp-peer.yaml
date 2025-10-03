@@ -1,0 +1,25 @@
+apiVersion: metallb.io/v1beta1
+kind: BGPPeer
+metadata:
+  name: router-peer
+  namespace: metallb-system
+spec:
+  # Your router's IP address
+  peerAddress: 192.168.1.1
+  
+  # BGP ASN (Autonomous System Number)
+  # Using private ASN range (64512-65534)
+  peerASN: 65001
+  myASN: 65000
+  
+  # Router ID - typically the MetalLB node's IP
+  routerID: 192.168.1.189
+  
+  # Keep BGP sessions alive
+  keepaliveTime: 120s
+  holdTime: 360s
+  
+  # Optional: Limit which nodes can establish BGP sessions
+  # nodeSelectors:
+  #   - matchLabels:
+  #       kubernetes.io/hostname: ubuntu
