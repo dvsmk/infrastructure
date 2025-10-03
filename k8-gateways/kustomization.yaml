@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Kubernetes Gateway API CRDs - Standard channel (stable)
+  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+  
+  # Uncomment the line below if you need experimental Gateway API features
+  # - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/experimental-install.yaml
+
+metadata:
+  name: k8s-gateway-api-crds
+  namespace: gateway-system
+
+# Create the gateway-system namespace
+namespace: gateway-system
+
+# Add labels to identify these resources
+commonLabels:
+  app.kubernetes.io/name: gateway-api
+  app.kubernetes.io/version: "v1.1.0"
+  app.kubernetes.io/component: crds
+  app.kubernetes.io/part-of: istio-infrastructure
