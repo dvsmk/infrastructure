@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   hosts:
-    - "*"  # or your DNS name
+    - "argocd.local"  # or your DNS name
   gateways:
     - argocd-gateway
   http:
