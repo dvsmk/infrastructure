@@ -5,7 +5,7 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-    - default-addresspool
+    - bgp-addresspool
   # Advertise to all BGP peers
   communities: []
   aggregationLength: 32
