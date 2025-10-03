@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   selector:
-    istio: ingressgateway # use the label of the Istio ingressgateway in istio-system
+    istio: istio # use the actual label of the Istio gateway pod
   servers:
     - port:
         number: 80
