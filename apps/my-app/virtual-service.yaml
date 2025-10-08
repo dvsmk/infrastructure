@@ -1,0 +1,17 @@
+# networking/my-app-virtualservice.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: my-app
+  namespace: my-app
+spec:
+  hosts:
+  - "my-app.example.com"
+  gateways:
+  - my-app-gateway
+  http:
+  - route:
+    - destination:
+        host: my-app
+        port:
+          number: 80

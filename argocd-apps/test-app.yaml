@@ -1,0 +1,19 @@
+# argocd-apps/my-app-argocd-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd  # Argo CD controller namespace
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/dvsmk/infrastructure.git'  # Replace with your Git repo
+    targetRevision: HEAD
+    path: apps/my-app  # Directory in your repo containing the manifests
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: my-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

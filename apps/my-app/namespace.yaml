@@ -1,0 +1,7 @@
+# namespaces/my-app-namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-app
+  labels:
+    istio-injection: "enabled"  # or istio.io/rev: <revision_name> for multi-rev Istio
