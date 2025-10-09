@@ -17,6 +17,6 @@ spec:
       uri: "/"  # Remove /my-app prefix before forwarding
     route:
     - destination:
-        host: my-app
+        host: my-app.my-app.svc.cluster.local
         port:
           number: 80
