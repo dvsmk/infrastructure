@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: legacy-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/dvsmk/infrastructure
+    targetRevision: HEAD
+    path: apps/legacy
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: legacy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
