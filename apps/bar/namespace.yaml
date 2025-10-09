@@ -2,3 +2,5 @@
 kind: Namespace
 metadata:
   name: bar
+  labels:
+    istio-injection: "enabled"  # or istio.io/rev: <revision_name> for multi-rev Istio
