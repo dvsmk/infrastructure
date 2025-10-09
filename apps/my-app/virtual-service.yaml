@@ -6,11 +6,17 @@ metadata:
   namespace: my-app
 spec:
   hosts:
-  - "my-app.example.com"
+  - "localhost"
+  - "*"
   gateways:
-  - my-app-gateway
+  - istio-system/shared-gateway  # Reference the shared gateway
   http:
-  - route:
+  - match:
+    - uri:
+        prefix: "/my-app"
+    rewrite:
+      uri: "/"  # Remove /my-app prefix before forwarding
+    route:
     - destination:
         host: my-app
         port:

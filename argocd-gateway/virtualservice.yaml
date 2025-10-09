@@ -5,13 +5,16 @@ metadata:
   namespace: argocd
 spec:
   hosts:
-    - "argocd.local"  # or your DNS name
+    - "localhost"
+    - "*"
   gateways:
-    - argocd-gateway
+    - istio-system/shared-gateway
   http:
     - match:
         - uri:
-            prefix: "/"
+            prefix: "/argocd"
+      rewrite:
+        uri: "/"
       route:
         - destination:
             host: argocd-server.argocd.svc.cluster.local
