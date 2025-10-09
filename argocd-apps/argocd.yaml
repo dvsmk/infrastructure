@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/your-gitops-repo.git
+    repoURL: https://github.com/dvsmk/infrastructure.git
     targetRevision: main
     path: bootstrap/argocd   # your Kustomize/Helm config for Argo CD
   destination:
